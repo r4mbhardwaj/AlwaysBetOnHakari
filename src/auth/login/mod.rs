@@ -1,6 +1,4 @@
-use crate::auth;
-
-pub fn login(username: &str, password: &str) -> bool {
+pub fn login(username: &str, _password: &str) -> bool {
     println!("Logging in user: {}", username);
     true
 }

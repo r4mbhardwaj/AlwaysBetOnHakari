@@ -1,3 +1,3 @@
-pub fn register(username: &str, password: &str) -> bool {
+pub fn register(_username: &str, _password: &str) -> bool {
     true
 }

@@ -1,6 +1,6 @@
 mod auth;
 
-use auth::{jwt, login, register};
+use auth::login;
 
 fn main() {
     println!("Hello, world!");
