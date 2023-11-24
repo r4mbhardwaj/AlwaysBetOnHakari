@@ -1,9 +1,14 @@
 mod auth;
+mod utils;
 
-use auth::login;
+mod game;
 
 fn main() {
-    println!("Hello, world!");
-    println!("This is the main.rs file");
-    println!("{:?}", login::login("Ram", "rambhardwaj"));
+    println!("Welcome to CursedRoll!");
+    let jwt = auth::start();
+    if jwt.is_empty() {
+        println!("Exiting the Auth");
+        return;
+    }
+    game::start(&jwt);
 }
