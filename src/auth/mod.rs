@@ -9,6 +9,7 @@ pub fn start() -> String {
     // ask the user to login or register
     println!("-x-x-x-x-x-");
     println!("Auth");
+    println!("-x-x-x-x-x-");
     println!("1. Login");
     println!("2. Register");
     println!("3. Exit");

@@ -11,7 +11,7 @@ pub fn login(_username: &str, _password: &str) -> bool {
 pub fn generate_jwt(username: &str) -> String {
     // generate a jwt for the user
     println!("Generating a jwt for the user");
-    crate::auth::jwt::create_token(username)
+    super::jwt::create_token(username, "user").unwrap()
 }
 
 pub fn start() -> String {
@@ -26,9 +26,6 @@ pub fn start() -> String {
             (field.to_string(), value)
         })
         .collect::<HashMap<String, String>>();
-
-    println!("{:?}", credentials);
-    println!("{:?}", credentials.get("username").unwrap());
 
     if credentials.get("username").unwrap().is_empty()
         || credentials.get("password").unwrap().is_empty()
