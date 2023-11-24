@@ -7,6 +7,7 @@ edition = "2021"
 
 [dependencies]
 jwt-simple = "0.11.9"
+rand = "0.8.5"
 
 [profile.release]
 strip = true  # Automatically strip symbols from the binary.

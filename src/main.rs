@@ -10,9 +10,36 @@ mod game {
     }
 
     pub mod play {
+        use rand::Rng;
+
         // for playing the game
         pub fn play() {
             println!("Playing the game");
+
+            // make user choose between 1-10
+            let mut choice: i8 = 0;
+            while choice < 1 || choice > 10 {
+                println!("Choose a number between 1-10");
+                let mut input = String::new();
+                std::io::stdin()
+                    .read_line(&mut input)
+                    .expect("Failed to read line");
+                choice = match input.trim().parse() {
+                    Ok(num) => num,
+                    Err(_) => continue,
+                };
+            }
+
+            let random_number = rand::thread_rng().gen_range(1..11); // generate a random number between 1-10
+
+            println!("Random number: {}", random_number);
+
+            // check if the user guessed the correct number
+            if choice == random_number {
+                println!("You guessed the correct number");
+            } else {
+                println!("You guessed the wrong number");
+            }
         }
     }
 
@@ -42,6 +69,7 @@ mod game {
             println!("1. Play");
             println!("2. Stats");
             println!("3. Exit");
+            print!("> ");
 
             let mut choice = String::new();
             std::io::stdin()
@@ -65,10 +93,9 @@ mod game {
 }
 
 fn main() {
-    println!("Hello, world!");
-    println!("This is the main.rs file");
+    println!("Welcome to CursedRoll!");
     let jwt = auth::start();
-    if jwt == "" {
+    if jwt.is_empty() {
         println!("Exiting the Auth");
         return;
     }

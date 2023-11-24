@@ -7,7 +7,7 @@ pub fn login(_username: &str, _password: &str) -> bool {
 pub fn generate_jwt(username: &str) -> String {
     // generate a jwt for the user
     println!("Generating a jwt for the user");
-    username.to_string() // return the username for now
+    crate::auth::jwt::create_token(username)
 }
 
 pub fn start() -> String {
