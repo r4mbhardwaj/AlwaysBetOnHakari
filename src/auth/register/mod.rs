@@ -1,3 +1,5 @@
+use crate::utils::input;
+
 pub fn register(_username: &str, _password: &str) -> bool {
     true
 }
@@ -6,19 +8,8 @@ pub fn start() -> String {
     println!("-x-x-x-x-x-x-");
     println!("Register");
     println!("-x-x-x-x-x-x-");
-    println!("Username: ");
-    let mut username = String::new();
-
-    std::io::stdin()
-        .read_line(&mut username)
-        .expect("Failed to read line");
-
-    println!("Password: ");
-    let mut password = String::new();
-
-    std::io::stdin()
-        .read_line(&mut password)
-        .expect("Failed to read line");
+    let username = input("Username: ").expect("Failed to read line");
+    let password = input("Password: ").expect("Failed to read line");
 
     let username = username.trim();
     let password = password.trim();

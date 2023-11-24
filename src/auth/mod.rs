@@ -1,3 +1,4 @@
+use crate::utils::input;
 pub const LOGIN_FIELDS: [&str; 2] = ["username", "password"];
 
 pub mod jwt;
@@ -12,10 +13,7 @@ pub fn start() -> String {
     println!("2. Register");
     println!("3. Exit");
 
-    let mut choice = String::new();
-    std::io::stdin()
-        .read_line(&mut choice)
-        .expect("Failed to read line");
+    let choice = input("> ").expect("Failed to read line");
 
     let choice: u32 = match choice.trim().parse() {
         Ok(num) => num,
@@ -23,8 +21,8 @@ pub fn start() -> String {
     };
 
     match choice {
-        1 => return login::start(),
-        2 => return register::start(),
+        1 => login::start(),
+        2 => register::start(),
         _ => "".to_string(),
     }
 }
