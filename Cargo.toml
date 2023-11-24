@@ -1,5 +1,5 @@
 [package]
-name = "CursedRoll"
+name = "cursed_roll"
 version = "0.1.0"
 edition = "2021"
 

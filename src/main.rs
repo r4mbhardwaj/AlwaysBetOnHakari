@@ -2,24 +2,23 @@ mod auth;
 
 use auth::login;
 
-mod Game {
-    use crate::auth::jwt;
+mod game {
 
-    pub mod Stats {
+    pub mod stats {
         // for checking the stats of the player
         pub fn stats() {
             println!("Checking the stats");
         }
     }
 
-    pub mod Play {
+    pub mod play {
         // for playing the game
         pub fn play() {
             println!("Playing the game");
         }
     }
 
-    pub fn is_authenticated(jwt: &str) -> bool {
+    pub fn is_authenticated(_jwt: &str) -> bool {
         // check if the jwt is valid
         println!("Checking if the user is authenticated");
         true // return true for now
@@ -56,8 +55,8 @@ mod Game {
             };
 
             match choice {
-                1 => Play::play(),
-                2 => Stats::stats(),
+                1 => play::play(),
+                2 => stats::stats(),
                 3 => exit = true,
                 _ => continue,
             }
@@ -69,6 +68,6 @@ mod Game {
 fn main() {
     println!("Hello, world!");
     println!("This is the main.rs file");
-    // println!("{:?}", login::login("Ram", "rambhardwaj"));
-    Game::start("adfasfjkhsdfasgdfhsfj");
+    println!("{:?}", login::login("Ram", "rambhardwaj"));
+    game::start("adfasfjkhsdfasgdfhsfj");
 }
