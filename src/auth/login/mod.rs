@@ -1,4 +1,4 @@
-pub fn login(username: &str, _password: &str) -> bool {
+pub fn login(_username: &str, _password: &str) -> bool {
     // check if the username and password are correct
     println!("Checking if the username and password are correct");
     true // return true for now

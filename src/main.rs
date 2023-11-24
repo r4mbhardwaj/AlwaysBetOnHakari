@@ -1,7 +1,5 @@
 mod auth;
 
-use auth::login;
-
 mod game {
 
     pub mod stats {
@@ -26,7 +24,7 @@ mod game {
 
     // start the game
     pub fn start(jwt: &str) {
-        println!("====================");
+        println!("\n\n====================");
         println!("Starting the game");
         println!("JWT: {}", jwt);
 
@@ -40,7 +38,7 @@ mod game {
         let mut exit = false;
 
         while !exit {
-            println!("-x-x-x-x-x-");
+            println!("\n-x-x-x-x-x-");
             println!("1. Play");
             println!("2. Stats");
             println!("3. Exit");
