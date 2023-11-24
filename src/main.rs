@@ -26,6 +26,7 @@ mod game {
 
     // start the game
     pub fn start(jwt: &str) {
+        println!("====================");
         println!("Starting the game");
         println!("JWT: {}", jwt);
 
@@ -68,6 +69,10 @@ mod game {
 fn main() {
     println!("Hello, world!");
     println!("This is the main.rs file");
-    println!("{:?}", login::login("Ram", "rambhardwaj"));
-    game::start("adfasfjkhsdfasgdfhsfj");
+    let jwt = auth::start();
+    if jwt == "" {
+        println!("Exiting the Auth");
+        return;
+    }
+    game::start(&jwt);
 }
